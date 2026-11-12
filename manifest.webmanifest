@@ -35,7 +35,8 @@
           "accept": [
             "application/json",
             "text/plain",
-            ".json"
+            ".json",
+            ".txt"
           ]
         }
       ]
