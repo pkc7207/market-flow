@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>수급기록실 v0.40</title><style>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>수급기록실 v0.41</title><style>
 :root{font-family:system-ui,'Noto Sans KR',sans-serif;color:#1c2939;background:#f2f5f9}*{box-sizing:border-box}body{margin:0}header{background:#172b49;color:white;padding:20px 16px}h1{font-size:22px;margin:0}h2{font-size:19px;margin:0 0 12px}p{line-height:1.55}header p{font-size:13px;margin:5px 0 0;opacity:.8}main{max-width:1100px;margin:auto;padding:14px}.panel{background:white;border-radius:15px;padding:16px;margin:0 0 14px;box-shadow:0 2px 9px #152b4210}.hint{color:#617186;font-size:13px}textarea,input,select{width:100%;font:inherit;border:1px solid #b8c5d5;border-radius:8px;padding:11px;background:white}textarea{min-height:130px;font-family:ui-monospace,monospace;font-size:12px}label{display:block;font-size:13px;font-weight:650;margin:10px 0 5px}button{font:inherit;border:0;background:#234d7a;color:white;border-radius:9px;padding:12px 14px;font-weight:700;cursor:pointer}button.secondary{background:#e9eef5;color:#24486e}button.danger{background:#fff0f0;color:#9a2929}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;white-space:nowrap;font-size:13px}th,td{padding:9px;border-bottom:1px solid #e4e9ef;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#edf2f7}tr.group td{background:#e8edf5;font-weight:750;text-align:left}.status{white-space:pre-wrap;font-size:13px;margin-top:12px;color:#18724e}.error{color:#a12626}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.metric{background:#f0f4f8;padding:12px;border-radius:9px}.metric small{display:block;color:#65748a}.metric strong{display:block;font-size:19px;margin:5px 0}canvas{width:100%;height:260px;display:block}.hidden{display:none}@media(max-width:450px){.metrics{gap:5px}.metric{padding:8px}.metric strong{font-size:16px}}
 /* v0.31 compact, mobile-first dashboard */
 header{padding:12px 14px}header h1{font-size:19px}header p{font-size:11px}main{padding:8px;max-width:1100px}.panel{border-radius:12px;padding:11px;margin-bottom:8px}h2{font-size:16px;margin:0}.toolbar{display:flex;gap:6px;align-items:end;flex-wrap:wrap}.toolbar label{flex:1;min-width:105px;font-size:11px;margin:0}.toolbar select{padding:8px 5px;margin-top:3px;font-size:13px}.toolbar button{padding:9px 8px;font-size:12px}.subline{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;color:#64748b;font-size:11px;margin:8px 0}.metrics{gap:5px}.metric{padding:8px 5px}.metric small{font-size:10px}.metric strong{font-size:17px;margin:2px 0}.sectionline{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin-bottom:8px}.sectionline .hint{font-size:10px}.compacttable{font-size:12px;table-layout:fixed;white-space:nowrap}.compacttable th,.compacttable td{padding:7px 3px;text-align:right}.compacttable th:first-child,.compacttable td:first-child{text-align:left;width:20%}.compacttable th:not(:first-child){font-size:10px}.compacttable tbody tr{cursor:pointer}.compacttable tbody tr.active{background:#eaf2fb}.compacttable tr.group td{padding:5px 4px;font-size:11px}.compacttable td.positive{color:#b72e65}.compacttable td.negative{color:#2364a5}.compacttable td:first-child{font-weight:650}.tight{margin:6px 0 0;font-size:10px}.chartgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.chartgrid h3{font-size:12px;margin:0 0 4px}.chartgrid canvas{height:165px}.fold summary{font-size:14px;font-weight:750;cursor:pointer}.fold summary .hint{font-size:11px;font-weight:400}.fold[open] summary{margin-bottom:12px}.fold .tablewrap{margin-top:10px}.status:empty{display:none}@media(max-width:450px){.compacttable{font-size:11px}.compacttable th,.compacttable td{padding:7px 2px}.metric strong{font-size:15px}.chartgrid canvas{height:150px}}
@@ -10,22 +10,26 @@ header{padding:12px 14px}header h1{font-size:19px}header p{font-size:11px}main{p
 
 /* v0.40 OCR reconciliation controls */
 .ocrReviewTable{font-size:12px;min-width:650px}.ocrReviewTable th,.ocrReviewTable td{padding:7px 5px}.ocrReviewTable input.ocrNumber{width:94px;min-width:84px;padding:7px 4px;text-align:right;font-size:12px;font-variant-numeric:tabular-nums}.ocrGood{color:#127049;font-weight:650}.ocrWarn{color:#a12626;font-weight:650}.ocrAuditNote{font-size:12px;font-weight:650;background:#edf2f7;padding:10px;border-radius:8px;margin-top:10px}.ocrVerify{display:flex;align-items:flex-start;gap:7px;font-size:12px;line-height:1.5;margin:14px 0 8px}.ocrVerify input{width:auto;flex:0 0 auto;margin:2px 0}.ocrEvidence{font-size:11px;margin-top:12px}.ocrEvidence summary{font-weight:650;cursor:pointer}.ocrEvidence p{overflow-wrap:anywhere;background:#f6f8fa;padding:7px;margin:5px 0;border-radius:5px}.ocrReviewTable td:first-child{font-weight:650}
+/* v0.41 OCR history and source-confidence */
+.ocrRunTable{font-size:11px}.ocrRunTable th,.ocrRunTable td{padding:6px 5px;font-variant-numeric:tabular-nums}.ocrRunTable tr.ocrCurrent{background:#eaf2fb}.ocrRunTable button{font-size:10px;padding:5px 8px}.ocrRunTable .attention{color:#a12626;font-weight:650}.ocrRunTable .pass{color:#127049;font-weight:650}.ocrFlowNotice{font-size:12px;padding:9px;background:#f3f6fa;border-radius:8px;margin-top:10px}
 </style><link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#172b49"><link rel="apple-touch-icon" href="./icon-192.png"></head><body>
-<header><h1>수급기록실 <small>v0.40</small></h1><p>코스피 · 누적 수급 / 구간 변화 / 분당 속도</p></header><main>
+<header><h1>수급기록실 <small>v0.41</small></h1><p>코스피 · 누적 수급 / 구간 변화 / 분당 속도</p></header><main>
 <div hidden><select id="viewInvestor"></select><select id="metricInvestor"></select><span id="deltaBuy"></span><span id="deltaSell"></span><span id="deltaNet"></span><span id="speedBuy"></span><span id="speedSell"></span><span id="speedNet"></span></div>
 <section class="panel overviewPanel"><div class="sectionline"><h2>전체 수급 · 4대 주체</h2><span class="hint" id="latestTime">기록 없음</span></div><div class="overviewMeta"><label for="viewDate">거래일 <select id="viewDate"></select></label><span id="count"></span><span id="interval"></span></div><div class="tablewrap"><table class="compacttable"><thead><tr><th>주체</th><th>누적 순매수</th><th>Δ매수</th><th>Δ매도</th><th>Δ순매수</th><th>분당</th></tr></thead><tbody id="overview"></tbody></table></div><p class="hint tight">Δ매수·Δ매도·Δ순매수는 위 구간의 변화액 · 분당은 순매수 변화 속도</p></section>
 <section class="panel flowPanel"><div class="sectionline"><h2>시간별 순매수 변화 · 4대 주체</h2><span class="hint">억원 / 억원·분</span></div><table class="flowTable"><thead><tr><th>기록 구간</th><th>개인</th><th>외국인</th><th>기관계</th><th>기타법인</th></tr></thead><tbody id="flowHistory"></tbody></table><div class="flowHint" id="flowHint">각 칸: 순매수 변화액(위) / 분당 변화 속도(아래)</div></section>
 <section class="panel chartPanel"><div class="sectionline"><h2>시간별 추이</h2><span class="hint">4대 주체 동시 표시</span></div><div class="chartgrid"><div><h3>누적 순매수</h3><canvas id="cumulative"></canvas></div><div><h3>분당 순매수 변화</h3><canvas id="velocity"></canvas></div><div id="chartLegend" class="legend"><span><i style="background:#2563eb"></i>개인</span><span><i style="background:#dc2626"></i>외국인</span><span><i style="background:#7c3aed"></i>기관계</span><span><i style="background:#059669"></i>기타법인</span></div></section>
 <details class="panel fold" id="detailFold"><summary>전체 주체 · 개별 분석</summary><div class="toolbar"><label>선택 주체 <select id="detailInvestor"></select></label></div><div class="tablewrap"><table class="compacttable"><thead><tr><th>주체</th><th>누적 순매수</th><th>Δ매수</th><th>Δ매도</th><th>Δ순매수</th><th>분당</th></tr></thead><tbody id="detailOverview"></tbody></table></div><div class="chartgrid"><div><h3>선택 주체 누적 순매수</h3><canvas id="detailCumulative"></canvas></div><div><h3>선택 주체 분당</h3><canvas id="detailVelocity"></canvas></div></div></details>
 <details class="panel fold" id="historyFold"><summary>시간순 상세 기록 <span class="hint">매수·매도·변화·삭제</span></summary><div class="tablewrap"><table><thead><tr><th>시각</th><th>매수</th><th>매도</th><th>순매수</th><th>Δ매수</th><th>Δ매도</th><th>Δ순매수</th><th>경과분</th><th>분당 순매수</th><th>삭제</th></tr></thead><tbody id="history"></tbody></table></div></details>
-<details class="panel fold" id="ocrFold"><summary>키움 OCR · 11개 주체 교차검산 <span class="hint">5개 화면 병합 / 수치 검토</span></summary>
+<details class="panel fold" id="ocrFold"><summary>키움 OCR · 11개 주체 교차검산 <span class="hint">5개 화면 병합 / 오류 격리 / 시간순 진단</span></summary>
 <p class="hint">MacroDroid의 OCR TXT를 읽어 여러 화면의 중복을 합칩니다. 매수−매도=순매매(±1억원)와 기관 세부 합계를 검산합니다. 자동 검산이 원본 숫자의 정확성을 보장하지는 않으며, 기존 통계는 검토·저장 전까지 변경되지 않습니다.</p>
-<div class="grid"><label>수집 거래일 (직접 지정)<input type="date" id="ocrDate"></label><label>실제 수급 기록 시각 (24시간, 직접 확인)<input type="time" id="ocrTime"></label></div>
+<div class="grid"><label>선택 회차의 거래일 (직접 확인)<input type="date" id="ocrDate"></label><label>실제 수급 기록 시각 (24시간, 직접 확인)<input type="time" id="ocrTime"></label></div>
 <textarea id="ocrText" spellcheck="false" placeholder='["SKT 12:05", "개인", "122,638", "121,157", "-1,481", ...]'></textarea>
 <div class="controls"><button class="secondary" id="ocrFileBtn">OCR TXT 파일 선택</button><button id="ocrPreviewBtn">항목 분석·교차검산</button><button id="ocrSaveBtn" class="secondary">OCR 원본 보관</button><button class="secondary" id="ocrExportBtn">보관본 JSON 내보내기</button><button class="secondary" id="ocrClearBtn">입력 지우기</button></div>
 <input type="file" id="ocrFile" accept=".txt,.json,text/plain,application/json" hidden>
 <div id="ocrStatus" class="status" role="status"></div>
 <label for="ocrSession">확인할 수집 회차 (기본: 가장 최근)<select id="ocrSession"></select></label>
+<div id="ocrRunSummary" class="tablewrap"></div>
+<div class="controls"><button id="ocrSessionExportBtn" class="secondary">회차별 수급 진단 CSV 내려받기</button></div>
 <div id="ocrPreview"></div>
 <label class="ocrVerify"><input type="checkbox" id="ocrReviewed"> 위 11개 주체의 매수·매도·순매매 수치를 원문과 대조했으며, 입력할 거래일과 시각을 확인했습니다.</label>
 <div class="controls"><button id="ocrToImportBtn">검토값을 표준 입력으로 보내기</button><button id="ocrReviewedExportBtn" class="secondary">검토값 JSON 내려받기</button></div>
@@ -99,7 +103,7 @@ function buildDiagnostic(){
   return {time,investor_count:rows.length,missing_investors:NAMES.filter(n=>!m.has(n)),institution_detail_sum:sums,institution_minus_detail:diff,note:'기관 세부 합계 차이는 촬영 시각 차이 또는 원천 자료 집계 차이일 수 있으며 자동 오류 판정하지 않음'};
  });
  const selectedDay=$('viewDate').value,selectedInvestor=$('viewInvestor').value;
- const report={report_type:'market_flow_execution_diagnostic',schema_version:1,app_version:'0.40',generated_at:new Date().toISOString(),timezone:'Asia/Seoul',storage:{key:KEY,record_count:data.length,trade_day_count:byDay.size,trade_days:[...byDay.keys()].sort(),retention_trade_days:5,readback_matches_memory:null},ui:{selected_day:selectedDay,selected_investor:selectedInvestor},last_action:lastAction,last_successful_save:lastSuccessfulSave,checks:{invalid_records:issues.filter(x=>x.type==='invalid_record').length,duplicate_time_investor:0,nonpositive_intervals:issues.filter(x=>x.type==='nonpositive_interval').length,cumulative_decreases:issues.filter(x=>x.type==='gross_cumulative_decreased').length},issues,records:ordered,interval_calculations:intervals,snapshot_checks:snapshotChecks};
+ const report={report_type:'market_flow_execution_diagnostic',schema_version:1,app_version:'0.41',generated_at:new Date().toISOString(),timezone:'Asia/Seoul',storage:{key:KEY,record_count:data.length,trade_day_count:byDay.size,trade_days:[...byDay.keys()].sort(),retention_trade_days:5,readback_matches_memory:null},ui:{selected_day:selectedDay,selected_investor:selectedInvestor},last_action:lastAction,last_successful_save:lastSuccessfulSave,checks:{invalid_records:issues.filter(x=>x.type==='invalid_record').length,duplicate_time_investor:0,nonpositive_intervals:issues.filter(x=>x.type==='nonpositive_interval').length,cumulative_decreases:issues.filter(x=>x.type==='gross_cumulative_decreased').length},issues,records:ordered,interval_calculations:intervals,snapshot_checks:snapshotChecks};
  const keys=new Set();for(const r of ordered){const k=r.time+'|'+r.investor;if(keys.has(k)){report.checks.duplicate_time_investor++;issues.push({type:'duplicate',time:r.time,investor:r.investor})}keys.add(k)}
  try{const stored=JSON.parse(localStorage.getItem(KEY)||'[]');report.storage.readback_matches_memory=JSON.stringify(stored)===JSON.stringify(data);report.storage.stored_record_count=stored.length;if(!report.storage.readback_matches_memory)issues.push({type:'storage_readback_mismatch'})}catch(e){report.storage.readback_error=e.message;issues.push({type:'storage_readback_error',message:e.message})}
  report.checks.issue_count=issues.length;report.checks.interval_count=intervals.length;return report;
@@ -113,6 +117,7 @@ $('deleteBtn').onclick=()=>{if(confirm('모든 기록을 삭제할까요?'))if(p
 // v0.40 OCR record reconciliation: all source positions are retained; the main flow data is never changed here.
 const OCR_KEY='market_flow_macro_ocr_raw_v1';
 let ocrPending=[], ocrSessions=[], ocrSelected=null, ocrRows={}, ocrBlockReview=false, ocrSplitNotices=[];
+const OCR_EXPECTED_PAGES=[['개인','외국인','기관계'],['금융투자','보험'],['투신','기타금융'],['은행','연기금등'],['사모펀드','기타법인']];
 const OCR_INSTITUTIONS=['금융투자','보험','투신','기타금융','은행','연기금등','사모펀드'];
 function splitOcrArrays(input){
   const text=String(input||'').replace(/^\uFEFF/,'').trim();
@@ -183,17 +188,19 @@ function decodeOcr(arr,day,index){
     if(!best){best={investor:match.name,label:arr[i],screen:index+1,sell:null,buy:null,net:null,difference:null,trust:false,score:match.quality*4,heading_quality:match.quality,evidence:[],positions:[],raw_context:tail.slice(0,24).map(x=>x.text)};flags.push(match.name+' 숫자 3개 검산 불가')}
     groups.push(best);
   }
-  return {schema_version:2,kind:'kiwoom_macro_ocr_raw',trade_date:day,screen_time_ocr:ocrClock(arr),imported_at:new Date().toISOString(),batch_index:index+1,raw:arr,groups,flags,validated:false};
+  return {schema_version:2,kind:'kiwoom_macro_ocr_raw',trade_date:null,selected_date_hint_unverified:day,screen_time_ocr:ocrClock(arr),imported_at:new Date().toISOString(),batch_index:index+1,raw:arr,groups,flags,validated:false};
 }
 function ocrMakeSessions(records){
   const runs=[];let batch=null;
+  const minutes=t=>t?Number(t.slice(0,2))*60+Number(t.slice(3)):null;
   for(const rec of records){
     const hasPersonal=rec.groups.some(g=>g.investor==='개인');
     const clock=rec.screen_time_ocr;
-    const minuteValue=t=>t?Number(t.slice(0,2))*60+Number(t.slice(3)):null;
-    const diff=batch&&clock&&batch.screen_time_ocr?Math.abs(minuteValue(clock)-minuteValue(batch.screen_time_ocr)):0;
+    const diff=batch&&clock&&batch.screen_time_ocr?Math.abs(minutes(clock)-minutes(batch.screen_time_ocr)):0;
     const differingTime=diff>2&&Math.min(diff,Math.abs(720-diff))>2;
-    if(!batch||(hasPersonal&&batch.records.length)||(differingTime&&batch.records.length)){
+    // Each successful MacroDroid execution emits 5 screens. A changed clock or a
+    // newly recognized first screen also starts a new run; never merge >5 screens.
+    if(!batch||batch.records.length>=5||(hasPersonal&&batch.records.length)||differingTime){
       batch={id:runs.length+1,records:[],screen_time_ocr:clock,start_index:rec.batch_index};runs.push(batch);
     }
     batch.records.push(rec);
@@ -201,17 +208,25 @@ function ocrMakeSessions(records){
   return runs;
 }
 function ocrReconcile(session){
-  const result={};const alerts=[];
+  const rows={},alerts=[];
   for(const name of NAMES){
-    const options=session.records.flatMap(r=>r.groups.filter(g=>g.investor===name).map(g=>({...g,batch_index:r.batch_index})));
+    // Reject a duplicated carry-over row on the next swipe (e.g. pension row
+    // visible on both pages 4 and 5). This also blocks a plausible KOSDAQ triplet
+    // from being silently used as a KOSPI row on a wrong page.
+    const expectedPage=OCR_EXPECTED_PAGES.findIndex(page=>page.includes(name));
+    const options=session.records.flatMap((r,page)=>page===expectedPage
+      ?r.groups.filter(g=>g.investor===name).map(g=>({...g,batch_index:r.batch_index,page_no:page+1})) :[]);
     const valid=options.filter(g=>g.trust).sort((a,b)=>b.score-a.score||a.screen-b.screen);
     const chosen=valid[0]||options.sort((a,b)=>b.score-a.score)[0]||null;
-    const strongValid=valid.filter(c=>c.heading_quality>=2);const differentValid=[...new Set(strongValid.map(c=>[c.sell,c.buy,c.net].join('/')))];
-    result[name]={name,chosen,source_screens:[...new Set(options.filter(g=>g.trust).map(g=>g.batch_index))],conflict:differentValid.length>1,edited:false,
+    const strongValid=valid.filter(c=>c.heading_quality>=2);
+    const distinctValid=[...new Set(strongValid.map(c=>[c.sell,c.buy,c.net].join('/')))];
+    const crossPage=session.records.some((r,page)=>page!==expectedPage&&r.groups.some(g=>g.investor===name));
+    rows[name]={name,chosen,source_screens:[...new Set(options.filter(g=>g.trust).map(g=>g.batch_index))],
+       expected_page:expectedPage+1,unexpected_page_seen:crossPage,conflict:distinctValid.length>1,edited:false,
        sell:chosen?.sell??null,buy:chosen?.buy??null,net:chosen?.net??null};
-    if(differentValid.length>1)alerts.push(name+': 유효한 숫자 후보 간 값이 달라 직접 검토 필요');
+    if(distinctValid.length>1)alerts.push(name+': 동일 화면 후보 숫자 충돌');
   }
-  return {rows:result,alerts,session};
+  return {rows,alerts,session};
 }
 function ocrAudit(rows){
   const issues=[];let pass=0,rounded=0;
@@ -238,6 +253,7 @@ function ocrEl(tag,txt){const el=document.createElement(tag);if(txt!==undefined)
 function ocrBuildDisplay(){
   const host=$('ocrPreview');host.replaceChildren();if(!ocrSelected)return;
   const summary=ocrAudit(ocrRows),meta=ocrEl('p');meta.className='hint';meta.textContent=`선택 회차: ${ocrSelected.records.length}개 화면 · OCR 시계 ${ocrSelected.screen_time_ocr||'미인식'} (오전/오후 미확정) · ${summary.pass}/11개 주체 숫자 검산 · 1억원 이내 차이 ${summary.rounded}건`;
+  if(ocrSelected.records.length!==5){const w=ocrEl('p','주의: 이 회차는 5개 화면이 아닙니다. 페이지가 빠졌거나 잘못 묶였을 수 있으므로 확정 저장을 막습니다.');w.className='status error';host.append(w)}
   host.append(meta);
   const wrap=ocrEl('div');wrap.className='tablewrap';const table=ocrEl('table');table.className='ocrReviewTable';
   const thead=ocrEl('thead'),tr=ocrEl('tr');for(const h of ['주체','매도','매수','순매매','검산','OCR 화면'])tr.append(ocrEl('th',h));thead.append(tr);table.append(thead);
@@ -250,8 +266,10 @@ function ocrBuildDisplay(){
       input.value=Number.isSafeInteger(row[field])?String(row[field]):'';input.dataset.name=name;input.dataset.field=field;cell.append(input);line.append(cell);
     }
     const diff=Number.isSafeInteger(row.sell)&&Number.isSafeInteger(row.buy)&&Number.isSafeInteger(row.net)?row.buy-row.sell-row.net:null;
-    const st=diff===null?'누락':Math.abs(diff)>1?'불일치':diff===0?'일치':'±1억';const cell=ocrEl('td',row.conflict&&!row.edited?'후보 충돌':st);cell.className=diff!==null&&Math.abs(diff)<=1&&!row.conflict?'ocrGood':'ocrWarn';line.append(cell);
+    const st=diff===null?'누락':Math.abs(diff)>1?'불일치':diff===0?'일치':'±1억';
+    const cell=ocrEl('td',row.conflict&&!row.edited?'후보 충돌':st);cell.className=diff!==null&&Math.abs(diff)<=1&&!row.conflict?'ocrGood':'ocrWarn';line.append(cell);
     const origin=ocrEl('td',row.source_screens.length?row.source_screens.map(x=>x-ocrSelected.start_index+1).join(', ')+'번':(row.chosen?.batch_index?row.chosen.batch_index-ocrSelected.start_index+1+'번':'없음'));line.append(origin);
+    if(row.unexpected_page_seen){line.title='다른 화면에서도 같은 제목이 관측됐습니다. 올바른 페이지의 수치만 사용합니다.';}
     tbody.append(line);
   }
   table.append(tbody);wrap.append(table);host.append(wrap);
@@ -259,27 +277,50 @@ function ocrBuildDisplay(){
   if(summary.agency){const a=summary.agency;diag.textContent='기관계 교차검산 (세부 7개 합계 − 기관계): 매도 '+(a.difference.sell>0?'+':'')+fmt(a.difference.sell)+'억 / 매수 '+(a.difference.buy>0?'+':'')+fmt(a.difference.buy)+'억 / 순매매 '+(a.difference.net>0?'+':'')+fmt(a.difference.net)+'억 · '+(a.passes?'허용 범위':'불일치')}else diag.textContent='기관계 교차검산: 기관 세부 숫자 누락으로 불가능';
   host.append(diag);
   if(summary.issues.length){const warn=ocrEl('p','확인 필요: '+summary.issues.join(' / '));warn.className='status error';host.append(warn)}
+  const caution=ocrEl('p','자료의 화면 OCR 시계는 오전·오후가 불분명합니다. 실제 24시간 시각과 거래일은 직접 확인하세요. 숫자가 검산에 통과해도 OCR 원본이 잘못 인식되었을 수 있습니다. 미인식 행을 이전 회차 값으로 자동 보충하지 않습니다.');caution.className='ocrFlowNotice';host.append(caution);
   const detail=ocrEl('details');detail.className='ocrEvidence';detail.append(ocrEl('summary','선택된 수치의 원문·화면 위치 보기'));
-  for(const name of NAMES){const r=ocrRows[name],line=ocrEl('p');line.textContent=name+': '+(r.chosen?'화면 '+(r.chosen.batch_index-ocrSelected.start_index+1)+' · '+r.chosen.label+' · ['+r.chosen.evidence.join(' / ')+']':'OCR 제목 미인식');detail.append(line)}
+  for(const name of NAMES){const r=ocrRows[name],line=ocrEl('p');line.textContent=name+': '+(r.chosen?'화면 '+(r.chosen.batch_index-ocrSelected.start_index+1)+' · '+r.chosen.label+' · ['+r.chosen.evidence.join(' / ')+']':'정해진 화면에서 제목/숫자 미인식');detail.append(line)}
   host.append(detail);
   const notes=ocrSplitNotices.length?ocrSplitNotices.length+'개 잘못 저장된 문자 건너뜀. ':'';
   const result=`${notes}${ocrSessions.length}회차 중 ${ocrSelected.id}회차 · ${ocrSelected.records.length}개 OCR 화면 병합 · ${summary.pass}/11개 주체 수치 검산${summary.agency?' · 기관 세부 합계 교차검산'+(summary.agency.passes?' 통과':' 불일치'):''}. 기존 통계는 변경하지 않았습니다.`;
   ocrReport(result,!summary.allOk);
 }
+function ocrBuildRunSummary(){
+  const host=$('ocrRunSummary');host.replaceChildren();if(!ocrSessions.length)return;
+  const p=ocrEl('p','회차별 잠정 OCR 진단 — 원문에 거래일·오전/오후가 없으므로 전체 회차의 날짜는 확정하지 않습니다. 각 회차를 별도로 검토해야 합니다.');p.className='hint';host.append(p);
+  const table=ocrEl('table');table.className='ocrRunTable';const header=ocrEl('thead'),tr=ocrEl('tr');
+  for(const h of ['회차','OCR 시계','화면','검산','기관합계','보기'])tr.append(ocrEl('th',h));header.append(tr);table.append(header);
+  const body=ocrEl('tbody');
+  for(const run of ocrSessions.slice(-15).reverse()){
+    const audit=ocrAudit(ocrReconcile(run).rows),line=ocrEl('tr');
+    if(ocrSelected&&run.id===ocrSelected.id)line.className='ocrCurrent';
+    const agency=!audit.agency?'불가':audit.agency.passes?'허용':'불일치';
+    for(const val of [String(run.id),run.screen_time_ocr||'—',String(run.records.length)+'/5',String(audit.pass)+'/11',agency])line.append(ocrEl('td',val));
+    const action=ocrEl('td'),btn=ocrEl('button','선택');btn.type='button';btn.className='secondary';btn.onclick=()=>ocrSelectSession(run.id);action.append(btn);line.append(action);
+    if(audit.allOk&&run.records.length===5)line.classList.add('pass');else line.classList.add('attention');
+    body.append(line);
+  }
+  table.append(body);host.append(table);
+}
 function ocrSelectSession(which){
   ocrSelected=ocrSessions.find(s=>String(s.id)===String(which))||ocrSessions.at(-1)||null;
-  ocrRows=ocrSelected?ocrReconcile(ocrSelected).rows:{};$('ocrReviewed').checked=false;ocrBuildDisplay();
+  ocrRows=ocrSelected?ocrReconcile(ocrSelected).rows:{};$('ocrReviewed').checked=false;
+  if(ocrSelected)$('ocrSession').value=String(ocrSelected.id);
+  ocrBuildRunSummary();ocrBuildDisplay();
 }
 function ocrPreview(){
   try{
     const arrays=splitOcrArrays($('ocrText').value),day=$('ocrDate').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(day))throw Error('수집 거래일을 선택하세요.');
     ocrPending=arrays.map((a,i)=>decodeOcr(a,day,i));ocrSessions=ocrMakeSessions(ocrPending);
-    const sel=$('ocrSession');sel.replaceChildren(...ocrSessions.map(s=>new Option(`회차 ${s.id} · OCR ${s.screen_time_ocr||'시각 미인식'} · 화면 ${s.records.length}개 · 배열 #${s.start_index}~${s.records.at(-1).batch_index}`,String(s.id))));
+    const sel=$('ocrSession');sel.replaceChildren(...ocrSessions.map(s=>{
+      const audit=ocrAudit(ocrReconcile(s).rows);
+      return new Option(`회차 ${s.id} · ${s.screen_time_ocr||'시각 미인식'} · 화면 ${s.records.length}/5 · 숫자 ${audit.pass}/11 · 배열 #${s.start_index}~${s.records.at(-1).batch_index}`,String(s.id))}));
     ocrSelectSession(ocrSessions.at(-1).id);return true;
-  }catch(e){ocrPending=[];ocrSessions=[];ocrSelected=null;ocrRows={};$('ocrSession').replaceChildren();$('ocrPreview').replaceChildren();ocrReport('OCR 분석 실패: '+e.message,true);return false}
+  }catch(e){ocrPending=[];ocrSessions=[];ocrSelected=null;ocrRows={};$('ocrSession').replaceChildren();$('ocrRunSummary').replaceChildren();$('ocrPreview').replaceChildren();ocrReport('OCR 분석 실패: '+e.message,true);return false}
 }
 function ocrBuildStandard(){
   if(!ocrSelected)throw Error('OCR 파일을 불러와 분석하세요.');
+  if(ocrSelected.records.length!==5)throw Error('5개 화면이 완성되지 않은 수집 회차입니다.');
   const audit=ocrAudit(ocrRows);if(!audit.allOk)throw Error('11개 주체가 모두 검산되고 기관계 교차검산이 통과해야 합니다. '+audit.issues.join(' / '));
   if(!$('ocrReviewed').checked)throw Error('원문 수치를 검토한 뒤 「11개 주체 수치 확인」에 체크하세요.');
   const day=$('ocrDate').value,at=$('ocrTime').value;
@@ -293,13 +334,28 @@ $('ocrPreview').addEventListener('change',e=>{
   const row=ocrRows[el.dataset.name],v=el.value.trim();row[el.dataset.field]=v!==''&&/^[+-]?\d+$/.test(v)?Number(v):null;
   row.edited=true;$('ocrReviewed').checked=false;ocrBuildDisplay();
 });
+function ocrCsvValue(v){return '"'+String(v===null||v===undefined?'':v).replaceAll('"','""')+'"'}
+$('ocrSessionExportBtn').onclick=()=>{
+ if(!ocrSessions.length){ocrReport('먼저 OCR 파일을 분석하세요.',true);return}
+ const fields=['거래일(개별확인전공란)','회차','OCR시계(12시간/오후불명)','OCR화면수','검산주체수','기관합계','검토상태'];
+ for(const name of NAMES)for(const key of ['매도','매수','순매수'])fields.push(name+'_'+key);
+ const rows=[fields];
+ for(const session of ocrSessions){
+   const r=ocrReconcile(session).rows, a=ocrAudit(r);
+   const base=['',session.id,session.screen_time_ocr||'',session.records.length,a.pass,a.agency?(a.agency.passes?'허용':'불일치'):'검증불가','OCR잠정/미검토'];
+   for(const name of NAMES)for(const field of ['sell','buy','net'])base.push(r[name][field]);
+   rows.push(base);
+ }
+ download('kiwoom_ocr_sessions_diagnostic.csv','\ufeff'+rows.map(row=>row.map(ocrCsvValue).join(',')).join('\n'),'text/csv;charset=utf-8');
+ ocrReport(ocrSessions.length+'개 수집 회차의 잠정 OCR 진단 CSV를 만들었습니다. 누락·불일치는 임의 보정하지 않았으며, 기존 수급기록은 변경하지 않았습니다.');
+};
 $('ocrPreviewBtn').onclick=ocrPreview;
 $('ocrFileBtn').onclick=()=>$('ocrFile').click();
 $('ocrFile').onchange=async()=>{const f=$('ocrFile').files[0];if(!f)return;try{$('ocrText').value=await f.text();$('ocrFold').open=true;ocrPreview()}catch(e){ocrReport('파일 읽기 실패: '+e.message,true)}finally{$('ocrFile').value=''}};
 $('ocrSaveBtn').onclick=()=>{
   if(!ocrPreview())return;
-  try{const old=loadOcrArchive(),keys=new Set(old.map(r=>r.trade_date+'|'+JSON.stringify(r.raw)));let count=0;
-    for(const r of ocrPending){const key=r.trade_date+'|'+JSON.stringify(r.raw);if(!keys.has(key)){old.push(r);keys.add(key);count++}}
+  try{const old=loadOcrArchive(),keys=new Set(old.map(r=>JSON.stringify(r.raw)));let count=0;
+    for(const r of ocrPending){const key=JSON.stringify(r.raw);if(!keys.has(key)){old.push(r);keys.add(key);count++}}
     const bounded=old.slice(-300);localStorage.setItem(OCR_KEY,JSON.stringify(bounded));
     if(localStorage.getItem(OCR_KEY)!==JSON.stringify(bounded))throw Error('저장소 재조회 불일치');
     ocrReport('OCR 원본 '+count+'건 신규 보관 · 전체 '+bounded.length+'건 (기존 수급 통계 변경 없음).');
@@ -312,7 +368,7 @@ $('ocrExportBtn').onclick=()=>{
 };
 $('ocrToImportBtn').onclick=()=>{try{const obj=ocrBuildStandard();$('jsonText').value=JSON.stringify(obj,null,2);$('importFold').open=true;preview();$('importFold').scrollIntoView({behavior:'smooth',block:'start'});ocrReport('11개 주체 검토값을 표준 입력으로 전달했습니다. 저장은 아래에서 별도로 실행해야 합니다.')}catch(e){ocrReport('표준 입력 전송 중단: '+e.message,true)}};
 $('ocrReviewedExportBtn').onclick=()=>{try{const obj=ocrBuildStandard();download('market_flow_reviewed_'+obj.time.replace(/[:T]/g,'-')+'.json',JSON.stringify(obj,null,2),'application/json');ocrReport('검토 완료된 11개 주체의 표준 JSON 초안을 내보냈습니다. 기존 수급 통계에는 미반영.')}catch(e){ocrReport('검토본 내보내기 중단: '+e.message,true)}};
-$('ocrClearBtn').onclick=()=>{$('ocrText').value='';$('ocrPreview').replaceChildren();ocrPending=[];ocrSessions=[];ocrRows={};ocrSelected=null;$('ocrSession').replaceChildren();$('ocrReviewed').checked=false;ocrReport('입력만 비웠습니다. 보관한 원본은 유지됩니다.')};
+$('ocrClearBtn').onclick=()=>{$('ocrText').value='';$('ocrPreview').replaceChildren();ocrPending=[];ocrSessions=[];ocrRows={};ocrSelected=null;$('ocrSession').replaceChildren();$('ocrRunSummary').replaceChildren();$('ocrReviewed').checked=false;ocrReport('입력만 비웠습니다. 보관한 원본은 유지됩니다.')};
 {const now=new Date(),loc=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);$('ocrDate').value=loc}
 // ===== end OCR intake =====
 
