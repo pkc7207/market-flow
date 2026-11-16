@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>수급기록실 v0.47</title><style>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>수급기록실 v0.48</title><style>
 :root{font-family:system-ui,'Noto Sans KR',sans-serif;color:#1c2939;background:#f2f5f9}*{box-sizing:border-box}body{margin:0}header{background:#172b49;color:white;padding:20px 16px}h1{font-size:22px;margin:0}h2{font-size:19px;margin:0 0 12px}p{line-height:1.55}header p{font-size:13px;margin:5px 0 0;opacity:.8}main{max-width:1100px;margin:auto;padding:14px}.panel{background:white;border-radius:15px;padding:16px;margin:0 0 14px;box-shadow:0 2px 9px #152b4210}.hint{color:#617186;font-size:13px}textarea,input,select{width:100%;font:inherit;border:1px solid #b8c5d5;border-radius:8px;padding:11px;background:white}textarea{min-height:130px;font-family:ui-monospace,monospace;font-size:12px}label{display:block;font-size:13px;font-weight:650;margin:10px 0 5px}button{font:inherit;border:0;background:#234d7a;color:white;border-radius:9px;padding:12px 14px;font-weight:700;cursor:pointer}button.secondary{background:#e9eef5;color:#24486e}button.danger{background:#fff0f0;color:#9a2929}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;white-space:nowrap;font-size:13px}th,td{padding:9px;border-bottom:1px solid #e4e9ef;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#edf2f7}tr.group td{background:#e8edf5;font-weight:750;text-align:left}.status{white-space:pre-wrap;font-size:13px;margin-top:12px;color:#18724e}.error{color:#a12626}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.metric{background:#f0f4f8;padding:12px;border-radius:9px}.metric small{display:block;color:#65748a}.metric strong{display:block;font-size:19px;margin:5px 0}canvas{width:100%;height:260px;display:block}.hidden{display:none}@media(max-width:450px){.metrics{gap:5px}.metric{padding:8px}.metric strong{font-size:16px}}
 /* v0.31 compact, mobile-first dashboard */
 header{padding:12px 14px}header h1{font-size:19px}header p{font-size:11px}main{padding:8px;max-width:1100px}.panel{border-radius:12px;padding:11px;margin-bottom:8px}h2{font-size:16px;margin:0}.toolbar{display:flex;gap:6px;align-items:end;flex-wrap:wrap}.toolbar label{flex:1;min-width:105px;font-size:11px;margin:0}.toolbar select{padding:8px 5px;margin-top:3px;font-size:13px}.toolbar button{padding:9px 8px;font-size:12px}.subline{display:flex;gap:8px;justify-content:space-between;flex-wrap:wrap;color:#64748b;font-size:11px;margin:8px 0}.metrics{gap:5px}.metric{padding:8px 5px}.metric small{font-size:10px}.metric strong{font-size:17px;margin:2px 0}.sectionline{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin-bottom:8px}.sectionline .hint{font-size:10px}.compacttable{font-size:12px;table-layout:fixed;white-space:nowrap}.compacttable th,.compacttable td{padding:7px 3px;text-align:right}.compacttable th:first-child,.compacttable td:first-child{text-align:left;width:20%}.compacttable th:not(:first-child){font-size:10px}.compacttable tbody tr{cursor:pointer}.compacttable tbody tr.active{background:#eaf2fb}.compacttable tr.group td{padding:5px 4px;font-size:11px}.compacttable td.positive{color:#b72e65}.compacttable td.negative{color:#2364a5}.compacttable td:first-child{font-weight:650}.tight{margin:6px 0 0;font-size:10px}.chartgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.chartgrid h3{font-size:12px;margin:0 0 4px}.chartgrid canvas{height:165px}.fold summary{font-size:14px;font-weight:750;cursor:pointer}.fold summary .hint{font-size:11px;font-weight:400}.fold[open] summary{margin-bottom:12px}.fold .tablewrap{margin-top:10px}.status:empty{display:none}@media(max-width:450px){.compacttable{font-size:11px}.compacttable th,.compacttable td{padding:7px 2px}.metric strong{font-size:15px}.chartgrid canvas{height:150px}}
@@ -13,8 +13,8 @@ header{padding:12px 14px}header h1{font-size:19px}header p{font-size:11px}main{p
 /* v0.44 safe non-trading-day guard and verified-only diagnostic exports */
 button:disabled{opacity:.48;cursor:not-allowed}input[readonly]{background:#edf5f6;border-color:#b2c9cb}
 .ocrRunTable{font-size:11px}.ocrRunTable th,.ocrRunTable td{padding:6px 5px;font-variant-numeric:tabular-nums}.ocrRunTable tr.ocrCurrent{background:#eaf2fb}.ocrRunTable button{font-size:10px;padding:5px 8px}.ocrRunTable .attention{color:#a12626;font-weight:650}.ocrRunTable .pass{color:#127049;font-weight:650}.ocrFlowNotice{font-size:12px;padding:9px;background:#f3f6fa;border-radius:8px;margin-top:10px}.ocrConfirmed{color:#127049;font-weight:700}.ocrPendingDate{color:#a12626;font-weight:700}.ocrDateNote{font-size:12px;background:#fff8e7;border:1px solid #eadbab;padding:10px;border-radius:8px;margin:9px 0}
-</style><link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#172b49"><link rel="apple-touch-icon" href="./icon-192.png"></head><body>
-<header><h1>수급기록실 <small>v0.47</small></h1><p>코스피 · 누적 수급 / 구간 변화 / 분당 속도</p></header><main>
+.ocrRecoveryRow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:6px 2px;border-bottom:1px solid #e2e8f0;font-size:11px}.ocrRecoveryRow span{flex:1 1 175px;font-variant-numeric:tabular-nums}.ocrRecoveryRow select{width:auto;max-width:160px;font-size:11px}.ocrRecoveryRow button{font-size:11px;padding:6px 8px}</style><link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#172b49"><link rel="apple-touch-icon" href="./icon-192.png"></head><body>
+<header><h1>수급기록실 <small>v0.48</small></h1><p>코스피 · 누적 수급 / 구간 변화 / 분당 속도</p></header><main>
 <div hidden><select id="viewInvestor"></select><select id="metricInvestor"></select><span id="deltaBuy"></span><span id="deltaSell"></span><span id="deltaNet"></span><span id="speedBuy"></span><span id="speedSell"></span><span id="speedNet"></span></div>
 <section class="panel overviewPanel"><div class="sectionline"><h2>전체 수급 · 4대 주체</h2><span class="hint" id="latestTime">기록 없음</span></div><div class="overviewMeta"><label for="viewDate">거래일 <select id="viewDate"></select></label><span id="count"></span><span id="interval"></span></div><div class="tablewrap"><table class="compacttable"><thead><tr><th>주체</th><th>누적 순매수</th><th>Δ매수</th><th>Δ매도</th><th>Δ순매수</th><th>분당</th></tr></thead><tbody id="overview"></tbody></table></div><p class="hint tight">Δ매수·Δ매도·Δ순매수는 위 구간의 변화액 · 분당은 순매수 변화 속도</p></section>
 <section class="panel flowPanel"><div class="sectionline"><h2>시간별 순매수 변화 · 4대 주체</h2><span class="hint">억원 / 억원·분</span></div><table class="flowTable"><thead><tr><th>기록 구간</th><th>개인</th><th>외국인</th><th>기관계</th><th>기타법인</th></tr></thead><tbody id="flowHistory"></tbody></table><div class="flowHint" id="flowHint">각 칸: 순매수 변화액(위) / 분당 변화 속도(아래)</div></section>
@@ -280,6 +280,81 @@ function ocrMakeSessions(records){
   }
   return runs;
 }
+// v0.48: An OCR page may retain the numbers but omit every investor heading.
+// In that case, show ONLY arithmetic-consistent triples as UNASSIGNED review
+// candidates. The original OCR text has NO spatial coordinates: positional
+// inference or arithmetic alone cannot prove an investor/market association.
+// Never auto-promote these candidates to verified records or exports.
+function ocrUnlabeledTriples(record){
+  if(record.groups.length||record.raw.length<10)return [];
+  if(!record.raw.some(x=>String(x).includes('코스피'))||
+     !record.raw.some(x=>String(x).includes('투자자별')))return [];
+  const raw=record.raw;
+  const header=raw.findIndex(x=>String(x).includes('메뉴'));
+  const start=Math.max(0,header+1);
+  const found=[];
+  for(let i=start;i+2<raw.length;i++){
+    const tokens=[ocrNumberToken(raw[i]),ocrNumberToken(raw[i+1]),ocrNumberToken(raw[i+2])];
+    if(tokens.some(t=>!t))continue;
+    const [sell,buy,net]=tokens.map(t=>t.value);
+    // Net must have its sign. In an unlabeled page bare integers can come from
+    // stock advertisements, KOSDAQ and futures and are not safe to auto-assign.
+    if(!/^[+-]/.test(String(raw[i+2]).trim())||sell<0||buy<0||
+       Math.abs(buy-sell-net)>1)continue;
+    found.push({sell,buy,net,positions:[i,i+1,i+2],
+      evidence:tokens.map(t=>t.raw),source_page:record.batch_index,
+      key:record.batch_index+':'+i});
+    i+=2;
+  }
+  return found.slice(0,24);
+}
+function ocrBuildUnlabeledReview(host){
+  if(!ocrSelected||ocrSelected.records.length!==5)return;
+  const needs=[];
+  for(let page=0;page<OCR_EXPECTED_PAGES.length;page++){
+    const rec=ocrSelected.records[page];
+    if(!rec)continue;
+    const missing=OCR_EXPECTED_PAGES[page].filter(name=>!ocrRows[name].chosen);
+    if(!missing.length)continue;
+    const candidates=ocrUnlabeledTriples(rec);
+    if(candidates.length)needs.push({page,missing,candidates});
+  }
+  if(!needs.length)return;
+  const details=ocrEl('details');details.className='ocrEvidence';
+  details.append(ocrEl('summary','주체명 누락 화면의 숫자 후보 보기 · 수동 연결'));
+  const alert=ocrEl('p','주의: 후보는 OCR 숫자끼리 계산이 맞는다는 뜻일 뿐, 코스피 첫 열인지 또는 어느 주체인지는 확인되지 않았습니다. 다른 시장의 숫자가 섞일 수 있습니다. 원본 화면을 독립적으로 확인할 수 있을 때만 연결하세요. 자동 보정·자동 저장은 하지 않습니다.');
+  alert.className='ocrFlowNotice';details.append(alert);
+  const already=new Set(Object.values(ocrRows).map(r=>r.chosen?.recovery_key).filter(Boolean));
+  for(const info of needs){
+    details.append(ocrEl('p',(info.page+1)+'번 화면 · 기대 주체 '+OCR_EXPECTED_PAGES[info.page].join(' / ')+' · 제목 없는 숫자 후보 '+info.candidates.length+'개'));
+    for(const c of info.candidates){
+      const line=ocrEl('div');line.className='ocrRecoveryRow';
+      line.append(ocrEl('span',c.evidence.join(' / ')+' (OCR 항목 #'+c.positions[0]+')'));
+      const sel=ocrEl('select');sel.setAttribute('aria-label',(info.page+1)+'번 화면 후보 연결 주체');
+      sel.append(new Option('주체 선택', ''));
+      for(const name of info.missing)sel.append(new Option(name,name));
+      const btn=ocrEl('button','선택 주체에 수동 적용');btn.type='button';btn.className='secondary';
+      if(already.has(c.key)){btn.disabled=true;btn.textContent='이미 적용됨'}
+      btn.onclick=()=>{
+        const name=sel.value;
+        if(!name)return;
+        if(!confirm(name+'의 코스피 매도·매수·순매수로 ['+c.evidence.join(' / ')+']을 수동 입력합니까?\\n원문에는 주체명이 없으므로 실제 화면과 대조해야 합니다.'))return;
+        const row=ocrRows[name];
+        row.sell=c.sell;row.buy=c.buy;row.net=c.net;row.conflict=false;row.edited=true;
+        row.chosen={investor:name,label:'제목 미인식 / 사용자 수동 연결',
+          batch_index:c.source_page,screen:info.page+1,
+          evidence:c.evidence,positions:c.positions,recovery_key:c.key,
+          manual_unlabeled:true,
+          reason:'주체명 OCR 누락 — 사용자가 화면별 숫자 후보를 선택함, 별도 원문 대조 필수'};
+        row.source_screens=[c.source_page];
+        $('ocrReviewed').checked=false;
+        ocrBuildDisplay();
+      };
+      line.append(sel,btn);details.append(line);
+    }
+  }
+  host.append(details);
+}
 function ocrReconcile(session){
   const rows={},alerts=[];
   for(const name of NAMES){
@@ -412,7 +487,7 @@ function ocrBuildDisplay(){
       input.value=Number.isSafeInteger(row[field])?String(row[field]):'';input.dataset.name=name;input.dataset.field=field;cell.append(input);line.append(cell);
     }
     const diff=Number.isSafeInteger(row.sell)&&Number.isSafeInteger(row.buy)&&Number.isSafeInteger(row.net)?row.buy-row.sell-row.net:null;
-    const st=diff===null?'누락':Math.abs(diff)>1?'불일치':row.chosen?.reordered?'순서 교정*':diff===0?'일치':'±1억';
+    const st=diff===null?'누락':Math.abs(diff)>1?'불일치':row.chosen?.manual_unlabeled?'수동 연결*':row.chosen?.reordered?'순서 교정*':diff===0?'일치':'±1억';
     const cell=ocrEl('td',row.conflict&&!row.edited?'후보 충돌':st);cell.className=diff!==null&&Math.abs(diff)<=1&&!row.conflict?'ocrGood':'ocrWarn';line.append(cell);
     const origin=ocrEl('td',row.source_screens.length?row.source_screens.map(x=>x-ocrSelected.start_index+1).join(', ')+'번':(row.chosen?.batch_index?row.chosen.batch_index-ocrSelected.start_index+1+'번':'없음'));line.append(origin);
     if(row.unexpected_page_seen){line.title='다른 화면에서도 같은 제목이 관측됐습니다. 올바른 페이지의 수치만 사용합니다.';}
@@ -423,10 +498,11 @@ function ocrBuildDisplay(){
   if(summary.agency){const a=summary.agency;diag.textContent='기관계 교차검산 (세부 7개 합계 − 기관계): 매도 '+(a.difference.sell>0?'+':'')+fmt(a.difference.sell)+'억 / 매수 '+(a.difference.buy>0?'+':'')+fmt(a.difference.buy)+'억 / 순매매 '+(a.difference.net>0?'+':'')+fmt(a.difference.net)+'억 · '+(a.passes?'허용 범위':'불일치')}else diag.textContent='기관계 교차검산: 기관 세부 숫자 누락으로 불가능';
   host.append(diag);
   if(summary.issues.length){const warn=ocrEl('p','확인 필요: '+summary.issues.join(' / '));warn.className='status error';host.append(warn)}
-  const caution=ocrEl('p','* 순서 교정은 코스피 첫 번째 수치 3개 안에서만 음수 순매수의 위치가 뒤바뀐 경우에 한해 적용합니다. 교정 여부를 원문으로 확인한 후 저장하세요. 날짜 표식이 있는 신규 수집 회차의 KST 일시는 자동 인식되지만 OCR 숫자는 여전히 잠정치입니다. 누락된 코스피 수치를 다른 시장 열에서 차용하지 않습니다.');caution.className='ocrFlowNotice';host.append(caution);
+  const caution=ocrEl('p','* 순서 교정은 코스피 첫 번째 수치 3개 안에서만 음수 순매수의 위치가 뒤바뀐 경우에 한해 적용합니다. 교정 여부를 원문으로 확인한 후 저장하세요. 날짜 표식이 있는 신규 수집 회차의 KST 일시는 자동 인식되지만 OCR 숫자는 여전히 잠정치입니다. 누락된 코스피 수치를 다른 시장 열에서 차용하지 않습니다. 제목 자체가 누락된 화면은 화면별 미확정 후보만 표시하며, 사용자가 실제 화면을 독립 확인한 경우에만 수동 연결할 수 있습니다.');caution.className='ocrFlowNotice';host.append(caution);
   const detail=ocrEl('details');detail.className='ocrEvidence';detail.append(ocrEl('summary','선택된 수치의 원문·화면 위치 보기'));
   for(const name of NAMES){const r=ocrRows[name],line=ocrEl('p');line.textContent=name+': '+(r.chosen?'화면 '+(r.chosen.batch_index-ocrSelected.start_index+1)+' · '+r.chosen.label+' · ['+r.chosen.evidence.join(' / ')+']'+(r.chosen.reason?' · 참고: '+r.chosen.reason:''):'정해진 화면에서 제목/숫자 미인식');detail.append(line)}
   host.append(detail);
+  ocrBuildUnlabeledReview(host);
   const notes=ocrSplitNotices.length?ocrSplitNotices.length+'개 잘못 저장된 문자 건너뜀. ':'';
   const result=`${notes}${ocrSessions.length}회차 중 ${ocrSelected.id}회차 · ${ocrSelected.records.length}개 OCR 화면 병합 · ${summary.pass}/11개 주체 수치 검산${summary.agency?' · 기관 세부 합계 교차검산'+(summary.agency.passes?' 통과':' 불일치'):''}. 기존 통계는 변경하지 않았습니다.`;
   ocrReport(result,!summary.allOk);
